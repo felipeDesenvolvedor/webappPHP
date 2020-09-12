@@ -1,9 +1,15 @@
 
 <?php
 
-include 'Artigos.php';
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
-$artigo = new Artigos();
+require 'config.php';
+include 'src/Artigos.php';
+
+$artigo = new Artigos($mysql);
 $artigos = $artigo->exibirTodosArtigos();
 
 ?>
@@ -22,7 +28,7 @@ $artigos = $artigo->exibirTodosArtigos();
         <h1>Meu Blog</h1>
         <?php foreach($artigos as $artigo): ?>
             <h2>
-                <a href=<?php echo $artigo['link'];?>>
+                <a href=<?php echo"artigo.php?id=".$artigo['id'];?>>
                     <?php echo $artigo['titulo'];?>
                 </a>
             </h2>
