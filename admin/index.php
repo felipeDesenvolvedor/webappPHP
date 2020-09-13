@@ -9,7 +9,6 @@ include '../src/Artigos.php';
 
 $artigo = new Artigos($mysql);
 $artigos = $artigo->exibirTodosArtigos();
-var_dump($artigos);
 ?>
 
 <!DOCTYPE html>

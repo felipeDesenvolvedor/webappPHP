@@ -14,6 +14,12 @@
             $resultado->execute();
         }
 
+        function excluirArtigo(string $id):void {
+            $artigoExcluir = $this->mysql->prepare('delete from artigos where id=?');
+            $artigoExcluir->bind_param('s', $id);
+            $artigoExcluir->execute();
+        }
+
        function exibirTodosArtigos():array {
 
         $retultado = $this->mysql->query('select * from artigos');
