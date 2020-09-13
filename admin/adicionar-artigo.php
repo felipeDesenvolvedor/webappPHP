@@ -1,3 +1,21 @@
+<?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+require '../config.php';
+require '../src/Artigos.php';
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $artigoObj = new Artigos($mysql);
+    $artigoObj->addArtigos($_POST['titulo'], '', $_POST['conteudo']);
+
+    header('location: http://webapp.com.br/');
+    die();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,7 +28,7 @@
 <body>
     <div id="container">
         <h1>Adicionar Artigo</h1>
-        <form action="adicionar-artigo.html" method="post">
+        <form action="adicionar-artigo.php" method="post">
             <p>
                 <label for="">Digite o título do artigo</label>
                 <input class="campo-form" type="text" name="titulo" id="titulo" />

@@ -8,6 +8,12 @@
             $this->mysql = $mysql;
         }
 
+        function addArtigos(string $titulo, string $link, string $conteudo) {
+            $resultado = $this->mysql->prepare('insert into artigos(titulo, link, conteudo) values(?,?,?)');
+            $resultado->bind_param('sss', $titulo, $link, $conteudo);
+            $resultado->execute();
+        }
+
        function exibirTodosArtigos():array {
 
         $retultado = $this->mysql->query('select * from artigos');
