@@ -36,4 +36,14 @@
         $artigo = $selecionaArtigo->get_result()->fetch_assoc();
         return $artigo;
        }
+
+       public function editar(string $id, string $titulo, string $conteudo):void {
+        echo $id.'<br>';
+        echo $titulo.'<br>';
+        echo $conteudo.'<br>';
+        
+        $selecionaArtigo = $this->mysql->prepare('update artigos set titulo = ?, conteudo = ? where id = ?');
+        $selecionaArtigo->bind_param('sss', $titulo, $conteudo, $id);
+        $selecionaArtigo->execute();
+       }
     }

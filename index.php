@@ -31,7 +31,7 @@ $artigos = $artigo->exibirTodosArtigos();
                 </a>
             </h2>
             <p>
-                <?php echo $artigo['conteudo'];?>
+                <?php echo nl2br($artigo['conteudo']);?>
             </p>
         <?php endforeach; ?>   
     </div>
